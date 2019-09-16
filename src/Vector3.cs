@@ -24,6 +24,15 @@ namespace VectorMath
         public double Z;
 
         /// <summary>
+        /// Gets the magnitude of the current Vector3
+        /// </summary>
+        public double Magnitude {
+            get {
+                return Math.Sqrt(this.X * this.X + this.Y * this.Y + this.Z * this.Z);
+            }
+        }
+
+        /// <summary>
         /// Constructs a new instance of Vector3 with
         /// X, Y, and Z properties set to 0.
         /// </summary>
@@ -46,6 +55,20 @@ namespace VectorMath
             this.X = x;
             this.Y = y;
             this.Z = z;
+        }
+
+        /// <summary>
+        /// Compute the cross product of this Vector3 and the given Vector3 "other"
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
+        public Vector3 CrossProduct(Vector3 other)
+        {
+            return new Vector3(
+                this.Y * other.Z - this.Z * other.Y,
+                this.Z * other.X - this.X * other.Z,
+                this.X * other.Y - this.Y * other.X
+            );
         }
     }
 }
